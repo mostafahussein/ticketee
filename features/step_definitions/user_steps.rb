@@ -1,10 +1,12 @@
-Given(/^there are the following users:$/) do |table|
-  table.hashes.each do |attributes|
-  	unconfirmed = attributes.delete("unconfirmed") == "true"
-  	@user = User.create!(attributes)
-  	@user.confirm! unless unconfirmed
-  end
-end
+   Given /^there are the following users:$/ do |table|
+      table.hashes.each do |attributes|
+      unconfirmed = attributes.delete("unconfirmed") == "true"
+      admin = attributes.delete("admin") == "true"
+      @user = User.create!(attributes)
+      @user.admin = admin
+      @user.confirm! unless unconfirmed
+      end
+    end
 
 Given(/^I am signed in as them$/) do
 	steps(%Q{
