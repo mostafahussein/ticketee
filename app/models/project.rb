@@ -10,4 +10,8 @@ class Project < ActiveRecord::Base
 			:user_id => user.id})  }
 		
  	has_many :tickets, :dependent => :delete_all
-	end
+
+ 	def self.for(user)
+ 		user.admin? ? Project : Project.readable_by(user)
+ 	end
+end
