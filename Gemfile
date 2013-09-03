@@ -7,6 +7,9 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 
+gem 'devise', '1.4.3'
+gem 'cancan'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,7 +35,6 @@ group :test do
 	gem 'capybara'
 	gem 'database_cleaner'
   gem 'factory_girl'
-  gem 'devise', '1.4.3'
   gem 'email_spec'
 end
 # To use ActiveModel has_secure_password
